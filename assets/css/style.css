@@ -1,0 +1,26 @@
+* {
+    margin: 0;
+    padding:0;
+
+}
+
+body {
+    background-color: blue;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin:10%;
+    
+}
+
+.playArea {
+    width:650px;
+    height: 650px;
+    background-color: black;
+    display: grid;
+    grid-template: repeat(25,1fr) / repeat(25,1fr);
+}
+
+.snakeHead {
+    background-color: red;
+}
