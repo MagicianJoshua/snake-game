@@ -10,15 +10,17 @@ function gameInit() {
     
     
     snakeMovement();
+    
+    
 }
 
 function snakeMovement() {
     console.log("current")
-    snake = `<div class="snakeHead" style="grid-area: ${snakeY} / ${snakeX}"></div>`
+   let snake = `<div class="snakeHead" style="grid-area: ${snakeY} / ${snakeX}"></div>`
     playArea.innerHTML = snake;
     document.addEventListener("keydown", function (event){
         var key = event.key
-        
+
         if (key === "ArrowDown") {
             snakeY += 1;
         } else if (key === "ArrowUp") {
@@ -31,12 +33,27 @@ function snakeMovement() {
         }
 
         snake = `<div class="snakeHead" style="grid-area: ${snakeY} / ${snakeX}"></div>`
-        playArea.innerHTML = snake;
+        playArea.innerHTML -= snake;    
+        playArea.innerHTML += snake;
+
     })
 
+    snakeFood();
     
     
     
 };
+
+
+function snakeFood() {
+    let pos = {
+    posY : Math.floor(Math.random() * 25),
+    posX : Math.floor(Math.random() * 25)
+    }
+    let food = `<div class="food" style="grid-area: ${pos.posY} / ${pos.posX}"></div>`
+    playArea.innerHTML += food
+    
+    
+}
 
     
